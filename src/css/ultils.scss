@@ -1,0 +1,143 @@
+/* 背景颜色 */
+$main-bg-color: rgb(0, 19, 52); // 主背景颜色
+$slidebar-bg-color: rgba(0, 18, 52, 0.7); // 侧边栏背景颜色
+$main-btn-color: rgb(28, 92, 196); // 住背景颜色
+$default-font-color:#333; // 默认字体颜色
+
+//水平flex两边布局
+@mixin flexHorizen($justify: space-between) {
+  display: flex;
+  justify-content: $justify;
+  align-items: center;
+}
+
+// 水平垂直居中
+@mixin centerChild() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+// 背景图片
+@mixin bg-image($url) {
+  background-image: url($url)!important;
+  background-size: 100% 100%!important;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+// 更改antd默认样式
+@mixin changeAntdCss() {
+  /* 菜单样式start */
+  .ant-menu-horizontal {
+    border-bottom: none;
+    line-height: 0.53rem;
+    background: none;
+    color: #9fbecd;
+    .ant-menu-item,
+    .ant-menu-item-active,
+    .ant-menu-submenu-title {
+      border-bottom: 0px solid rgba(0, 0, 0, 0) !important;
+      > span {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+      }
+      a {
+        text-align: center;
+        color: #9fbecd;
+      }
+      .icon {
+        font-size: 30px;
+      }
+    }
+    .ant-menu-item:hover,
+    .ant-menu-item-active,
+    .ant-menu-item-selected,
+    .ant-menu-submenu-selected,
+    .ant-menu-submenu-open,
+    .ant-menu-submenu-selected > a,
+    .ant-menu-item-selected > a,
+    .ant-menu-horizontal > .ant-menu-item-selected {
+      color: #00D5FF;
+      border-bottom: 0px solid rgba(0, 0, 0, 0) !important;
+    }
+    .ant-menu-item-selected > a {
+      color: #00D5FF;
+      font-weight: 600;
+    }
+  }
+  /* 菜单样式end */
+  /* table组件修改Start */
+  高亮选择颜色
+  .ant-table-thead > tr.ant-table-row-hover:not(.ant-table-expanded-row) > td,
+  .ant-table-tbody > tr.ant-table-row-hover:not(.ant-table-expanded-row) > td,
+  .ant-table-thead > tr:hover:not(.ant-table-expanded-row) > td,
+  .ant-table-tbody > tr:hover:not(.ant-table-expanded-row) > td,
+  .ant-table-tbody > tr.active:not(.ant-table-expanded-row) > td {
+    background: rgba(81, 187, 255, 0.1);
+  }
+
+  // 表格居中对齐
+  // .ant-table-thead > tr > th,
+  // .ant-table-tbody > tr > td {
+  //   text-align: center;
+  //   padding: 0.12rem 0.12rem;
+  //   color: white;
+  //   border-bottom: 1px solid #015296;
+  // }
+
+  // .ant-table-thead > tr > th {
+  //   font-size: 0.18rem;
+  // }
+
+  // 表格偶数行变色
+  // .ant-table-tbody {
+  //   tr:nth-child(even) {
+  //     background: rgb(12, 33, 73);
+  //   }
+  // }
+  /* table组件修改End */
+
+  /* antd表单Start */
+  .ant-form-item {
+    margin-bottom: 0;
+    .ant-form-item-children {
+      display: inline-block;
+      width: 100%;
+      .ant-select {
+        width: 96%;
+      }
+      .ant-select-selection {
+        background: none;
+        border: none;
+        .ant-select-selection-selected-value {
+          color: white;
+          font-size: 0.16rem;
+        }
+        .ant-select-arrow {
+          i {
+            color: white;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+}
+
+// 确认按钮
+@mixin submitBtn() {
+  .submit-btn {
+    width: 0.8rem;
+    height: 0.32rem;
+    line-height: 0.32rem;
+    display: inline-block;
+    background: $main-btn-color;
+    text-align: center;
+    border-radius: 0.05rem;
+    color: #fff;
+    font-size: 0.15rem;
+    cursor: pointer;
+  }
+}
